@@ -1,6 +1,6 @@
 package com.learning;
 
-public class ClimbStairs {
+public class Staircase {
 
     public static int climbStairs(int n) {
 
