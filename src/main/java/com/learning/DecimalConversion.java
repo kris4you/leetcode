@@ -3,7 +3,7 @@ package com.learning;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DecimalFraction {
+public class DecimalConversion {
 
     public static void main(String[] args) {
         System.out.println(fractionToDecimal(-2147483648, 1));

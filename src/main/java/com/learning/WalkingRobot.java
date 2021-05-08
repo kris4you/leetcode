@@ -1,6 +1,6 @@
 package com.learning;
 
-public class RoboMovement {
+public class WalkingRobot {
 
     public static void main(String[] args) {
 

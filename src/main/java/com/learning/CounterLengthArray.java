@@ -3,7 +3,7 @@ package com.learning;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CircularArray {
+public class CounterLengthArray {
 
     private static int circularLength(int[] nums, int index) {
 

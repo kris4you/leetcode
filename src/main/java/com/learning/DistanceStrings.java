@@ -1,6 +1,6 @@
 package com.learning;
 
-public class StringDistance {
+public class DistanceStrings {
 
     public static void main(String[] args) {
         String s = "geeks for geeks contribute practice";
