@@ -6,7 +6,7 @@ import java.util.Map;
 public class DecimalConversion {
 
     public static void main(String[] args) {
-        System.out.println(fractionToDecimal(-2147483648, 1));
+        System.out.println(fractionToDecimal(1, 3));
     }
 
     private static String fractionToDecimal(int numerator, int denominator) {

@@ -12,7 +12,7 @@ public class RunlengthEncoding {
                 count++;
                 i++;
             }
-            t += s.charAt(i) + "" + (count > 1 ? count : "");
+            t += s.charAt(i) + "" + count;
         }
         System.out.println(t);
     }
@@ -20,5 +20,10 @@ public class RunlengthEncoding {
     public static void main(String[] args) {
 
         printRLE("wwwwaaadexxxxxxywww");
+        printRLE("a");
+        printRLE("aa");
+        printRLE("aabbb");
+        printRLE("aabbbaa");
+
     }
 }

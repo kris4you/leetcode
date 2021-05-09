@@ -3,35 +3,39 @@ package com.learning;
 public class DistanceStrings {
 
     public static void main(String[] args) {
-        String s = "geeks for geeks contribute practice";
-        String w1 = "geeks";
-        String w2 = "practice";
+        String s = "This is a sample document we just made up";
+        String w1 = "we";
+        String w2 = "just";
         System.out.println(distance(s, w1, w2));
+        System.out.println(distance(s, "is", "a"));
+        System.out.println(distance(s, "is", "not"));
 
-        System.out.println(distance("the quick the brown quick brown the frog", "quick", "frog"));
-        // This code is contributed by princiRaj1992
     }
 
-    private static int distance(String s, String w1, String w2) {
-        String[] words = s.split(" ");
-        int minDistance = words.length + 1;
+    private static double distance(String s, String w1, String w2) {
+        String[] words = s.split("[,. ]");
+        double distance = s.length();
+        double loc1 = 0;
+        double loc2 = 0;
+        int i = 0;
 
-        for (int i = 0; i < words.length; i++) {
+        for (String word : words) {
 
-            if (words[i].equals(w1)) {
-                int k = i + 1;
-                while (k < words.length) {
-                    if (words[k].equals(w2)) {
-                        int currDistance = k - i - 1;
-                        if (currDistance < minDistance) {
-                            minDistance = currDistance;
-                        }
-                    }
-                    k++;
+            if (word.equals(w1)) {
+                loc1 = i + (word.length() / 2d);
+            } else if (word.equals(w2)) {
+                loc2 = i + (word.length() / 2d);
+            }
+            if (loc1 > 0 && loc2 > 0) {
+                if (loc2 - loc1 < distance) {
+                    distance = loc2 - loc1;
                 }
             }
-
+            i += word.length() + 1;
         }
-        return minDistance;
+        if (loc1 == 0 || loc2 == 0) {
+            return -1;
+        }
+        return distance;
     }
 }

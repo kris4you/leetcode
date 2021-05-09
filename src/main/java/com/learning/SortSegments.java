@@ -52,7 +52,7 @@ public class SortSegments {
                 endPosition = pointQueue.getLast().getY();
             }
         }
-
+        System.out.println(new ArrayList<>(pointQueue));
         System.out.println(pointQueue);
     }
 

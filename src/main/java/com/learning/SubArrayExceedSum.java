@@ -23,6 +23,6 @@ public class SubArrayExceedSum {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(minSubArrayLen(10, new int[] { 1, 2, 3, 4 }));
     }
 }

@@ -6,8 +6,10 @@ public class LongestUniformSubstring {
 
     public static void main(String[] args) {
         int[] result = longestUniformSubstring("100011122222");
-        int[] result2 = longestUniformSubstring("aabbbbCdAA");
+        int[] result2 = longestUniformSubstring("abbbccda");
         System.out.println(Arrays.toString(result));
+        System.out.println(Arrays.toString(result2));
+
     }
 
     private static int[] longestUniformSubstring(String string) {

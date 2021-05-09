@@ -1,7 +1,5 @@
 package com.learning;
 
-import javafx.util.converter.IntegerStringConverter;
-
 public class KnightAnalysis {
 
     public static boolean isValid(int i, int j, int n) {
@@ -48,7 +46,7 @@ public class KnightAnalysis {
     }
 
     public static void main(String[] args) {
-        System.out.println(knightProbability(3, 2, 0, 0));
+        System.out.println(knightProbability(8, 3, 3, 1));
         ;
     }
 }

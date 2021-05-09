@@ -5,6 +5,7 @@ public class WalkingRobot {
     public static void main(String[] args) {
 
         robomovement("UDDLLRUUUDUURUDDUULLDRRRR");
+        robomovement("UUU");
 
     }
 
