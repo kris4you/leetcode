@@ -1,70 +1,169 @@
 package com.learning;
-
+// A structure to represent a Dequ
 public class DequeImpl {
+    static final int MAX = 100;
+    int arr[];
+    int front;
+    int rear;
+    int size;
 
-    int[] element = new int[5];
-    int front = -1, rear = -1;
-    int length = element.length;
+    public DequeImpl(int size) {
+        arr = new int[MAX];
+        front = -1;
+        rear = 0;
+        this.size = size;
+    }
 
-    void addFirst(int x) {
+    /*
+     * // Operations on Deque: void insertfront(int key); void insertrear(int key);
+     * void deletefront(); void deleterear(); bool isFull(); bool isEmpty(); int
+     * getFront(); int getRear();
+     */
 
-        if (front == -1 && rear == -1) {
-            front = rear = 0;
-            element[front] = x;
-        } else if (front == 0) {
-            front = length - 1;
-            element[front] = x;
-        } else {
-            front--;
-            element[front] = x;
+    // Checks whether Deque is full or not.
+    boolean isFull() {
+        return ((front == 0 && rear == size - 1) || front == rear + 1);
+    }
+
+    // Checks whether Deque is empty or not.
+    boolean isEmpty() {
+        return (front == -1);
+    }
+
+    // Inserts an element at front
+    void insertfront(int key) {
+        // check whether Deque if full or not
+        if (isFull()) {
+            System.out.println("Overflow");
+            return;
         }
-    }
 
-    void removeLast(int x) {
-
-    }
-
-    void removeFirst(int x) {
-
-    }
-
-    void peekFirst(int x) {
-
-    }
-
-    void peekLast(int x) {
-
-    }
-
-    void addLast(int x) {
-
-        if (front == -1 && rear == -1) {
-            front = rear = 0;
-            element[rear] = x;
-        } else if (rear == length - 1) {
+        // If queue is initially empty
+        if (front == -1) {
+            front = 0;
             rear = 0;
-            element[rear] = x;
-        } else {
-            rear++;
-            element[rear] = x;
         }
+
+        // front is at first position of queue
+        else if (front == 0)
+            front = size - 1;
+
+        else // decrement front end by '1'
+            front = front - 1;
+
+        // insert current element into Deque
+        arr[front] = key;
     }
 
-    void display() {
-
-        int i = front;
-        while (i != rear) {
-
-            System.out.println(element[i]);
-            i = (i + 1) % length;
+    // function to inset element at rear end
+    // of Deque.
+    void insertrear(int key) {
+        if (isFull()) {
+            System.out.println(" Overflow ");
+            return;
         }
-        System.out.println(element[rear]);
+
+        // If queue is initially empty
+        if (front == -1) {
+            front = 0;
+            rear = 0;
+        }
+
+        // rear is at last position of queue
+        else if (rear == size - 1)
+            rear = 0;
+
+        // increment rear end by '1'
+        else
+            rear = rear + 1;
+
+        // insert current element into Deque
+        arr[rear] = key;
     }
 
+    // Deletes element at front end of Deque
+    void deletefront() {
+        // check whether Deque is empty or not
+        if (isEmpty()) {
+            System.out.println("Queue Underflow\n");
+            return;
+        }
+
+        // Deque has only one element
+        if (front == rear) {
+            front = -1;
+            rear = -1;
+        } else
+        // back to initial position
+        if (front == size - 1)
+            front = 0;
+
+        else // increment front by '1' to remove current
+             // front value from Deque
+            front = front + 1;
+    }
+
+    // Delete element at rear end of Deque
+    void deleterear() {
+        if (isEmpty()) {
+            System.out.println(" Underflow");
+            return;
+        }
+
+        // Deque has only one element
+        if (front == rear) {
+            front = -1;
+            rear = -1;
+        } else if (rear == 0)
+            rear = size - 1;
+        else
+            rear = rear - 1;
+    }
+
+    // Returns front element of Deque
+    int getFront() {
+        // check whether Deque is empty or not
+        if (isEmpty()) {
+            System.out.println(" Underflow");
+            return -1;
+        }
+        return arr[front];
+    }
+
+    // function return rear element of Deque
+    int getRear() {
+        // check whether Deque is empty or not
+        if (isEmpty() || rear < 0) {
+            System.out.println(" Underflow\n");
+            return -1;
+        }
+        return arr[rear];
+    }
+
+    // Driver program to test above function
     public static void main(String[] args) {
-        DequeImpl dequeImpl = new DequeImpl();
-        dequeImpl.addFirst(10);
-        dequeImpl.addLast(20);
-        dequeImpl.display();
+
+        DequeImpl dq = new DequeImpl(5);
+
+        System.out.println("Insert element at rear end : 5 ");
+        dq.insertrear(5);
+
+        System.out.println("insert element at rear end : 10 ");
+        dq.insertrear(10);
+
+        System.out.println("get rear element : " + dq.getRear());
+
+        dq.deleterear();
+        System.out.println("After delete rear element new rear become : " + dq.getRear());
+
+        System.out.println("inserting element at front end");
+        dq.insertfront(15);
+
+        System.out.println("get front element: " + dq.getFront());
+
+        dq.deletefront();
+
+        System.out.println("After delete front element new front become : " + +dq.getFront());
+
     }
 }

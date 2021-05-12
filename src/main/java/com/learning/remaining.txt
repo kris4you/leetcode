@@ -1,13 +1,2 @@
-1.Deque
-2.HashMap
-3.LargestTree
-4.Longestword
-5.LowestPRice
-6.MagicPotion
-7.Median of two arrays
-8.OptimalPath
-9.PrefixSearch
-10.SearchTree
-11.SmallestNumber
-12.KnightProbability
-
+Longestword
+SearchTree

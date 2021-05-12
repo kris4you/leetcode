@@ -9,7 +9,7 @@ public class KnightAnalysis {
         return false;
     }
 
-    public static double knightProbability(int n, int k, int row, int column) {
+    public static double knightProbability(int n, int row, int column, int k) {
 
         double ans = 0.0;
         double[][] curr = new double[n][n];
@@ -46,7 +46,12 @@ public class KnightAnalysis {
     }
 
     public static void main(String[] args) {
+        System.out.println(knightProbability(8, 0, 0, 0));
+        System.out.println(knightProbability(8, 0, 0, 1));
         System.out.println(knightProbability(8, 3, 3, 1));
+        System.out.println(knightProbability(8, 0, 0, 2));
+        System.out.println(knightProbability(8, 0, 0, 1));
+        System.out.println(knightProbability(8, 1, 2, 10));
         ;
     }
 }
