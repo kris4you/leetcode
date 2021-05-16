@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 // Java program to print all valid words that
 // are possible using character of array
-public class SearchDict {
+public class LongestWord {
 
     // Alphabet size
     static final int SIZE = 26;
