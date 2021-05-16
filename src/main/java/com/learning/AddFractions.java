@@ -2,6 +2,10 @@ package com.learning;
 
 import java.util.Arrays;
 
+/***
+ * 
+ * 1.calucate GCD
+ */
 public class AddFractions {
 
     public static int[] addFraction(int[] fraction1, int[] fraction2) {

@@ -9,6 +9,15 @@ public class DecimalConversion {
         System.out.println(fractionToDecimal(1, 3));
     }
 
+    /***
+     * 
+     * first get reaminder put the remiander in map if the remainer repeats put the
+     * leanth
+     * 
+     * @param numerator
+     * @param denominator
+     * @return
+     */
     private static String fractionToDecimal(int numerator, int denominator) {
 
         boolean isNeg = false;

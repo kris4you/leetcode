@@ -4,7 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CounterLengthArray {
-
+    /***
+     * 
+     * put every thing in map. if the map contain the index hat means circuar.
+     * 
+     * @param nums
+     * @param index
+     * @return
+     */
     private static int circularLength(int[] nums, int index) {
 
         int count = 0;

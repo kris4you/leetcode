@@ -5,7 +5,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * 
+ * sort array and put in map
+ */
 public class GroupAnagrams {
 
   private static List<List<String>> groupAnagrams(String[] strs) {
