@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.sound.sampled.SourceDataLine;
+
 public class SortSegments {
 
     public static void main(String[] args) {
@@ -16,7 +18,7 @@ public class SortSegments {
          * place the segments with start point in hashmap place all the segments with
          * end point in hashmap add all the points to deque
          */
-
+        List<Point> result = new ArrayList<>();
         List<Point> points = new ArrayList<>();
         points.add(new Point(4, 5));
         points.add(new Point(9, 4));
@@ -26,34 +28,52 @@ public class SortSegments {
         Map<Integer, Point> startMap = points.stream().collect(Collectors.toMap(m -> m.getX(), x -> x));
         Map<Integer, Point> endMap = points.stream().collect(Collectors.toMap(m -> m.getY(), y -> y));
 
-        System.out.println(startMap);
-        System.out.println(endMap);
+        /***
+         * 
+         * option 1
+         */
+        System.out.println(startMap + " " + endMap);
 
-        Deque<Point> pointQueue = new ArrayDeque<>();
-        pointQueue.addLast(points.get(0));
-        Integer startPoistion = points.get(0).getX();
-        Integer endPosition = points.get(0).getY();
+        int left = points.get(0).x;
+        int right = points.get(0).y;
 
-        while (startMap.get(endPosition) != null || endMap.get(startPoistion) != null) {
-
-            Point srcEndpoint = startMap.get(endPosition);
-            Point destEndpoint = endMap.get(startPoistion);
-
-            if (srcEndpoint != null)
-                pointQueue.addLast(srcEndpoint);
-            if (destEndpoint != null)
-                pointQueue.addFirst(destEndpoint);
-
-            if (pointQueue.getFirst() != null) {
-                startPoistion = pointQueue.getFirst().getX();
-            }
-
-            if (pointQueue.getLast() != null) {
-                endPosition = pointQueue.getLast().getY();
-            }
+        while (endMap.get(right) != null) {
+            Point p = endMap.get(right);
+            right = p.x;
         }
-        System.out.println(new ArrayList<>(pointQueue));
-        System.out.println(pointQueue);
+        while (startMap.get(right) != null) {
+            Point p = startMap.get(right);
+            result.add(p);
+            right = p.y;
+        }
+
+        System.out.println(result);
+        // Deque<Point> pointQueue = new ArrayDeque<>();
+        // pointQueue.addLast(points.get(0));
+        // Integer startPoistion = points.get(0).getX();
+        // Integer endPosition = points.get(0).getY();
+
+        // while (startMap.get(endPosition) != null || endMap.get(startPoistion) !=
+        // null) {
+
+        // Point srcEndpoint = startMap.get(endPosition);
+        // Point destEndpoint = endMap.get(startPoistion);
+
+        // if (srcEndpoint != null)
+        // pointQueue.addLast(srcEndpoint);
+        // if (destEndpoint != null)
+        // pointQueue.addFirst(destEndpoint);
+
+        // if (pointQueue.getFirst() != null) {
+        // startPoistion = pointQueue.getFirst().getX();
+        // }
+
+        // if (pointQueue.getLast() != null) {
+        // endPosition = pointQueue.getLast().getY();
+        // }
+        // }
+        // System.out.println(new ArrayList<>(pointQueue));
+        // System.out.println(pointQueue);
     }
 
     static class Point {
